@@ -1,0 +1,53 @@
+Atue como Principal Software Architect (React Expert).
+Vamos construir a "Salomão Quiz Engine v2 (God Mode)" - Uma plataforma White-Label Enterprise para rodar quizzes de alta conversão (Estilo Zing/Mimika).
+
+OBJETIVO: Criar uma Single Page Application (SPA) em React + Vite + Tailwind que renderiza dinamicamente qualquer fluxo de quiz baseado em um arquivo de configuração JSON.
+
+STACK OBRIGATÓRIA:
+- React 18 + TypeScript (Strict Mode).
+- Vite (Build Tool).
+- TailwindCSS (Styling).
+- Framer Motion (Animações complexas de entrada/saída).
+- Zustand (Gerenciamento de Estado Global).
+- Lucide React (Ícones).
+- clsx + tailwind-merge (Utilitários de classe).
+
+---
+
+PASSO 1: ARQUITETURA DE DADOS (O CÉREBRO)
+Crie o arquivo `src/types/quiz.ts` definindo interfaces robustas:
+1. `QuizConfig`: Contém `globalSettings` (cores primárias/secundárias, fonte, logo, borderRadius) e `screens` (array).
+2. `Screen`: Deve usar Discriminated Unions para tipos:
+   - 'welcome' (Capa)
+   - 'multi_select' (Cards com ícone/texto)
+   - 'image_select' (Grid de imagens ex: corpos)
+   - 'info_interstitial' (Texto de transição/curiosidade)
+   - 'loading_calculated' (Barra de progresso fake com passos)
+   - 'email_capture' (Lead)
+   - 'vsl_sales' (Página de vendas final)
+3. `LogicRule`: (Opcional por enquanto) Para definir saltos condicionais.
+
+PASSO 2: GERENCIAMENTO DE ESTADO (A MEMÓRIA)
+Crie `src/store/quizStore.ts` usando Zustand:
+- Deve armazenar: `answers` (mapa de id_tela -> valor), `currentScreenId`, `history` (para botão voltar).
+- Middleware `persist`: Salvar progresso no localStorage automaticamente.
+- Actions: `answerQuestion(screenId, value)`, `nextScreen()`, `prevScreen()`.
+
+PASSO 3: O MOTOR DE RENDERIZAÇÃO (O CORAÇÃO)
+Crie `src/components/QuizRenderer.tsx`:
+- Um componente que lê o `currentScreenId`.
+- Encontra a tela no JSON.
+- Usa um Switch/Case para chamar o componente visual correto.
+- Envolve TUDO em `<AnimatePresence mode='wait'>` para transições suaves entre telas (Slide In/Out).
+
+PASSO 4: COMPONENTES VISUAIS (A CARROCERIA - FERRARI LEVEL)
+Crie componentes em `src/components/screens/` com design Premium:
+- `ProgressBar`: Animada, fixa no topo, lê a cor do JSON.
+- `SelectCard`: Com hover state, borda ativa, ícone suportando SVG ou Lucide.
+- `BodySelector`: (Placeholder por enquanto) Grid preparado para receber imagens.
+- `LoadingScreen`: Não apenas uma barra. Deve ter uma lista de "Checklist" que vai marcando (ex: "Analisando perfil...", "Calculando metabolismo...") para gerar ansiedade.
+
+PASSO 5: CONFIGURAÇÃO DE EXEMPLO
+Crie um arquivo `src/data/example-quiz.ts` com um JSON mockado que imita o "Zing Coach" (umas 5 telas variadas) para testarmos a engine imediatamente.
+
+EXECUTE A CRIAÇÃO DESTA ESTRUTURA COMPLETA AGORA.
