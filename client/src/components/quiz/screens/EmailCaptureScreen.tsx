@@ -61,7 +61,7 @@ export function EmailCaptureScreen({ screen }: Props) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary w-fit mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm text-primary w-fit mb-4">
               <Sparkles className="w-4 h-4" />
               <span className="text-sm font-medium">Exclusivo Para Você</span>
             </div>
@@ -139,7 +139,7 @@ export function EmailCaptureScreen({ screen }: Props) {
                     value={emailValue}
                     onChange={(e) => setEmailValue(e.target.value)}
                     className={cn(
-                      'h-14 text-lg rounded-xl',
+                      'h-14 text-lg bg-white/5 border-white/20 focus:border-primary',
                       error && 'border-destructive focus-visible:ring-destructive'
                     )}
                     data-testid="input-email"
@@ -157,8 +157,9 @@ export function EmailCaptureScreen({ screen }: Props) {
 
                 <Button
                   type="submit"
+                  variant="shiny"
                   size="lg"
-                  className="w-full h-14 text-lg rounded-xl gap-2"
+                  className="w-full h-14 text-base font-medium gap-2"
                   disabled={isSubmitting}
                   data-testid="button-submit"
                 >

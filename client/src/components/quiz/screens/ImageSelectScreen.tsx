@@ -100,9 +100,9 @@ export function ImageSelectScreen({ screen }: Props) {
               >
                 <div
                   className={cn(
-                    'relative aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer transition-all duration-200',
-                    'border-4',
-                    isSelected ? 'border-primary shadow-lg' : 'border-transparent'
+                    'relative aspect-[3/4] rounded-lg overflow-hidden cursor-pointer transition-all duration-200',
+                    'border-2',
+                    isSelected ? 'border-primary/60 shadow-lg shadow-primary/20' : 'border-white/10 hover:border-white/20'
                   )}
                   onClick={() => handleSelect(option.id)}
                   data-testid={`card-image-${option.id}`}
@@ -131,12 +131,12 @@ export function ImageSelectScreen({ screen }: Props) {
 
                   {isSelected && (
                     <motion.div
-                      className="absolute top-3 right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+                      className="absolute top-3 right-3 w-7 h-7 rounded-md bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: 'spring', stiffness: 500, damping: 25 }}
                     >
-                      <Check className="w-5 h-5 text-primary-foreground" />
+                      <Check className="w-4 h-4 text-white" />
                     </motion.div>
                   )}
                 </div>
@@ -151,10 +151,11 @@ export function ImageSelectScreen({ screen }: Props) {
           transition={{ delay: 0.4, duration: 0.4 }}
         >
           <Button
+            variant="shiny"
             size="lg"
             onClick={handleContinue}
             disabled={!selected}
-            className="px-8 py-6 text-lg rounded-full gap-2 group"
+            className="px-8 py-5 text-base font-medium gap-2 group"
             data-testid="button-continue"
           >
             Continuar

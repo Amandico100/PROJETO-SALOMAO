@@ -13,7 +13,7 @@ export function InfoInterstitialScreen({ screen }: Props) {
   const { nextScreen } = useQuizStore();
 
   const getIcon = (iconName: string) => {
-    const IconComponent = (LucideIcons as Record<string, React.FC<{ className?: string }>>)[iconName];
+    const IconComponent = (LucideIcons as unknown as Record<string, React.FC<{ className?: string }>>)[iconName];
     return IconComponent ? <IconComponent className="w-16 h-16" /> : null;
   };
 
@@ -28,7 +28,7 @@ export function InfoInterstitialScreen({ screen }: Props) {
         >
           {screen.icon && (
             <motion.div
-              className="w-24 h-24 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary"
+              className="w-20 h-20 mx-auto rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-primary"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{
@@ -82,9 +82,10 @@ export function InfoInterstitialScreen({ screen }: Props) {
             className="pt-4"
           >
             <Button
+              variant="shiny"
               size="lg"
               onClick={nextScreen}
-              className="px-8 py-6 text-lg rounded-full gap-2 group"
+              className="px-8 py-5 text-base font-medium gap-2 group"
               data-testid="button-continue"
             >
               {screen.ctaText}

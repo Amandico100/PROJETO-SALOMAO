@@ -63,7 +63,7 @@ export function WelcomeScreen({ screen }: Props) {
         )}
 
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm text-primary mb-6"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -101,9 +101,10 @@ export function WelcomeScreen({ screen }: Props) {
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <Button
+            variant="shiny"
             size="lg"
             onClick={nextScreen}
-            className="px-8 py-6 text-lg rounded-full gap-2 group"
+            className="px-8 py-5 text-base font-medium gap-2 group"
             data-testid="button-start"
           >
             {screen.ctaText}

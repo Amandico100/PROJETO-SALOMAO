@@ -110,11 +110,11 @@ export function MultiSelectScreen({ screen }: Props) {
               <motion.div key={option.id} variants={itemVariants}>
                 <Card
                   className={cn(
-                    'relative p-6 cursor-pointer transition-all duration-200',
-                    'border-2 hover-elevate active-elevate-2',
+                    'relative p-5 cursor-pointer transition-all duration-200',
+                    'backdrop-blur-sm',
                     isSelected
-                      ? 'border-primary bg-primary/5'
-                      : 'border-transparent hover:border-muted'
+                      ? 'border-primary/50 bg-primary/10'
+                      : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'
                   )}
                   onClick={() => handleSelect(option.id)}
                   data-testid={`card-option-${option.id}`}
@@ -123,28 +123,28 @@ export function MultiSelectScreen({ screen }: Props) {
                     {option.icon && (
                       <div
                         className={cn(
-                          'flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-colors',
-                          isSelected ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                          'flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center transition-colors',
+                          isSelected ? 'bg-primary text-primary-foreground' : 'bg-white/10'
                         )}
                       >
                         {getIcon(option.icon)}
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-lg mb-1">{option.label}</h3>
+                      <h3 className="font-medium text-base mb-0.5">{option.label}</h3>
                       {option.description && (
                         <p className="text-sm text-muted-foreground">{option.description}</p>
                       )}
                     </div>
                     <div
                       className={cn(
-                        'flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all',
+                        'flex-shrink-0 w-5 h-5 rounded-md border flex items-center justify-center transition-all',
                         isSelected
                           ? 'border-primary bg-primary text-primary-foreground'
-                          : 'border-muted-foreground/30'
+                          : 'border-white/30'
                       )}
                     >
-                      {isSelected && <Check className="w-4 h-4" />}
+                      {isSelected && <Check className="w-3 h-3" />}
                     </div>
                   </div>
                 </Card>
@@ -164,7 +164,7 @@ export function MultiSelectScreen({ screen }: Props) {
               size="lg"
               onClick={handleContinue}
               disabled={!canContinue}
-              className="px-8 py-6 text-lg rounded-full gap-2 group"
+              className="px-8 py-5 text-base font-medium gap-2 group"
               data-testid="button-continue"
             >
               Continuar

@@ -144,7 +144,7 @@ export function InputScreen({ screen }: Props) {
             value={value}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            className="text-center text-xl py-6 h-auto"
+            className="text-center text-2xl py-5 h-auto bg-white/5 border-0 border-b-2 border-white/20 rounded-none focus:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/50"
             data-testid="input-value"
             autoFocus
           />
@@ -169,7 +169,7 @@ export function InputScreen({ screen }: Props) {
             variant="shiny"
             size="lg"
             onClick={handleContinue}
-            className="px-8 py-6 text-lg rounded-full gap-2 group"
+            className="px-8 py-5 text-base font-medium gap-2 group"
             data-testid="button-continue"
           >
             {screen.ctaText || 'Continuar'}

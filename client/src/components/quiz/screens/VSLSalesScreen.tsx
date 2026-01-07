@@ -39,7 +39,7 @@ export function VSLSalesScreen({ screen }: Props) {
 
         {(screen.videoUrl || screen.videoThumbnail) && (
           <motion.div
-            className="relative aspect-video rounded-2xl overflow-hidden mb-12 bg-muted"
+            className="relative aspect-video rounded-lg overflow-hidden mb-12 bg-muted border border-white/10"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -61,8 +61,8 @@ export function VSLSalesScreen({ screen }: Props) {
                   />
                 )}
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-                <div className="relative w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-primary-foreground ml-1" />
+                <div className="relative w-16 h-16 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <Play className="w-7 h-7 text-white ml-1" />
                 </div>
               </div>
             )}
@@ -124,9 +124,10 @@ export function VSLSalesScreen({ screen }: Props) {
               </div>
 
               <Button
+                variant="shiny"
                 size="lg"
                 onClick={handleCTA}
-                className="w-full py-6 text-lg rounded-xl gap-2 group"
+                className="w-full py-5 text-base font-medium gap-2 group"
                 data-testid="button-cta"
               >
                 {screen.ctaText}

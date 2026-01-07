@@ -15,10 +15,10 @@ export function ProgressBar() {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 pt-3 bg-background/80 backdrop-blur-sm">
-      <div className="h-1.5 mx-4 rounded-full bg-muted overflow-hidden">
+    <div className="fixed top-0 left-0 right-0 z-50 mt-4 pt-2 bg-background/60 backdrop-blur-md">
+      <div className="h-1 mx-6 rounded-full bg-white/10 overflow-hidden">
         <motion.div
-          className="h-full bg-primary rounded-full"
+          className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%` }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
