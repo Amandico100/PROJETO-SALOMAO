@@ -3,11 +3,14 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema } from "@shared/schema";
 import { z } from "zod";
+import { generateFullAudit } from "./god_mode";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  
+  app.get("/api/god-mode-audit", generateFullAudit);
   
   app.post("/api/leads", async (req, res) => {
     try {
