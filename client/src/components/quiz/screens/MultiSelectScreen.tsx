@@ -41,6 +41,8 @@ export function MultiSelectScreen({ screen }: Props) {
       });
     } else {
       setSelected([optionId]);
+      answerQuestion(screen.id, optionId);
+      nextScreen();
     }
   };
 
@@ -54,7 +56,7 @@ export function MultiSelectScreen({ screen }: Props) {
   const canContinue = selected.length >= (screen.minSelections || 1);
 
   const getIcon = (iconName: string) => {
-    const IconComponent = (LucideIcons as Record<string, React.FC<{ className?: string }>>)[iconName];
+    const IconComponent = (LucideIcons as unknown as Record<string, React.FC<{ className?: string }>>)[iconName];
     return IconComponent ? <IconComponent className="w-6 h-6" /> : null;
   };
 
@@ -151,22 +153,25 @@ export function MultiSelectScreen({ screen }: Props) {
           })}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4 }}
-        >
-          <Button
-            size="lg"
-            onClick={handleContinue}
-            disabled={!canContinue}
-            className="px-8 py-6 text-lg rounded-full gap-2 group"
-            data-testid="button-continue"
+        {screen.allowMultiple && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.4 }}
           >
-            Continuar
-            <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </motion.div>
+            <Button
+              variant="shiny"
+              size="lg"
+              onClick={handleContinue}
+              disabled={!canContinue}
+              className="px-8 py-6 text-lg rounded-full gap-2 group"
+              data-testid="button-continue"
+            >
+              Continuar
+              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </motion.div>
+        )}
       </div>
     </div>
   );

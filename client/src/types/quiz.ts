@@ -106,6 +106,22 @@ export interface VSLSalesScreen extends BaseScreen {
   }>;
 }
 
+export interface InputScreen extends BaseScreen {
+  type: 'input';
+  question: string;
+  subtitle?: string;
+  inputType: 'text' | 'number' | 'tel' | 'email';
+  placeholder?: string;
+  ctaText?: string;
+  validation?: {
+    required?: boolean;
+    minLength?: number;
+    maxLength?: number;
+    min?: number;
+    max?: number;
+  };
+}
+
 export type Screen =
   | WelcomeScreen
   | MultiSelectScreen
@@ -113,7 +129,8 @@ export type Screen =
   | InfoInterstitialScreen
   | LoadingCalculatedScreen
   | EmailCaptureScreen
-  | VSLSalesScreen;
+  | VSLSalesScreen
+  | InputScreen;
 
 export interface LogicRule {
   condition: {

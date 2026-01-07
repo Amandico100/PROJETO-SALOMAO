@@ -28,6 +28,8 @@ export function ImageSelectScreen({ screen }: Props) {
 
   const handleSelect = (optionId: string) => {
     setSelected(optionId);
+    answerQuestion(screen.id, optionId);
+    nextScreen();
   };
 
   const handleContinue = () => {

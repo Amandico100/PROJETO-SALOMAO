@@ -8,6 +8,7 @@ import { InfoInterstitialScreen } from './screens/InfoInterstitialScreen';
 import { LoadingCalculatedScreen } from './screens/LoadingCalculatedScreen';
 import { EmailCaptureScreen } from './screens/EmailCaptureScreen';
 import { VSLSalesScreen } from './screens/VSLSalesScreen';
+import { InputScreen } from './screens/InputScreen';
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -61,6 +62,8 @@ export function QuizRenderer() {
         return <EmailCaptureScreen screen={currentScreen} />;
       case 'vsl_sales':
         return <VSLSalesScreen screen={currentScreen} />;
+      case 'input':
+        return <InputScreen screen={currentScreen} />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
