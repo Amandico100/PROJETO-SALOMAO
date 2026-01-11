@@ -122,6 +122,31 @@ export interface InputScreen extends BaseScreen {
   };
 }
 
+export interface ScaleScreen extends BaseScreen {
+  type: 'scale';
+  question: string;
+  subtitle?: string;
+  scaleMin: number;
+  scaleMax: number;
+  minLabel?: string;
+  maxLabel?: string;
+  showNumbers?: boolean;
+}
+
+export interface SliderScreen extends BaseScreen {
+  type: 'slider';
+  question: string;
+  subtitle?: string;
+  min: number;
+  max: number;
+  step?: number;
+  unit?: string;
+  minLabel?: string;
+  maxLabel?: string;
+  defaultValue?: number;
+  showValue?: boolean;
+}
+
 export type Screen =
   | WelcomeScreen
   | MultiSelectScreen
@@ -130,7 +155,9 @@ export type Screen =
   | LoadingCalculatedScreen
   | EmailCaptureScreen
   | VSLSalesScreen
-  | InputScreen;
+  | InputScreen
+  | ScaleScreen
+  | SliderScreen;
 
 export interface LogicRule {
   condition: {

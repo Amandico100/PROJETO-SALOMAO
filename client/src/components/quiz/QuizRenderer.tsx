@@ -9,6 +9,8 @@ import { LoadingCalculatedScreen } from './screens/LoadingCalculatedScreen';
 import { EmailCaptureScreen } from './screens/EmailCaptureScreen';
 import { VSLSalesScreen } from './screens/VSLSalesScreen';
 import { InputScreen } from './screens/InputScreen';
+import { ScaleScreen } from './screens/ScaleScreen';
+import { SliderScreen } from './screens/SliderScreen';
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -64,6 +66,10 @@ export function QuizRenderer() {
         return <VSLSalesScreen screen={currentScreen} />;
       case 'input':
         return <InputScreen screen={currentScreen} />;
+      case 'scale':
+        return <ScaleScreen screen={currentScreen} />;
+      case 'slider':
+        return <SliderScreen screen={currentScreen} />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
@@ -76,7 +82,7 @@ export function QuizRenderer() {
   return (
     <div className="relative min-h-screen bg-background overflow-hidden">
       <ProgressBar />
-      
+
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={currentScreen.id}

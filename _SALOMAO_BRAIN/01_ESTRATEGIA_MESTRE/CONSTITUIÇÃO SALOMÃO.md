@@ -49,7 +49,7 @@ Salomão entrega isso através de:
 
 1. **Iscas Digitais Extraordinárias** — Ferramentas interativas (calculadoras, quizzes, simuladores) que capturam atenção e geram leads qualificados
 2. **Transformação 99% → 1%** — Converter pessoas que nem sabiam que precisavam do produto em pessoas desesperadas para comprar
-3. **Prompts Mestre Perfeitos** — Códigos completos prontos para o Lovable/Replit que funcionam de primeira
+3. **Isca Finalizada no Código** — Aplicativos completos escritos diretamente no repositório que funcionam de primeira
 
 ### Métricas de Sucesso
 
@@ -303,8 +303,8 @@ Nota: 85/100
 │       │                                                                    │
 │       ▼                                                                    │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │              FASE 7: PROMPT MESTRE                                  │   │
-│  │              (Documento completo para Lovable/Replit)              │   │
+│  │              FASE 7: CONSTRUÇÃO                                     │   │
+│  │              (Código escrito diretamente no repositório)           │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 │       │                                                                    │
 │       ▼                                                                    │
@@ -478,12 +478,12 @@ Nota: 85/100
 
 ---
 
-### FASE 7: PROMPT MESTRE
+### FASE 7: CONSTRUÇÃO (Motor de Execução Direta)
 
-**Objetivo:** Compilar tudo em um documento único pronto para Lovable/Replit, **incluindo as decisões de jornada de telas e integrações externas (APIs) tomadas na Fase 6**, de forma que o cliente possa simplesmente copiar e colar.
+**Objetivo:** Escrever o código da isca diretamente no repositório em `client/src/data/iscas/`, **incluindo as decisões de jornada de telas e integrações externas (APIs) tomadas na Fase 6**, de forma que a isca saia funcionando.
 
 **O que acontece:**
-- Compilação de todas as definições em formato de Prompt Mestre:
+- Geração do código TypeScript/React com todas as definições:
   - contexto e objetivo da isca,
   - stack técnico recomendada (React + Tailwind + Shadcn, Supabase, etc.),
   - design system (cores, fontes, bordas, espaçamentos),
@@ -501,10 +501,9 @@ Nota: 85/100
     - descrição resumida do que ela faz no contexto da isca,
     - placeholders explícitos para as chaves de API (ex.: `NANOBANANA_API_KEY`),
     - lembrete sobre “preencher com a chave obtida seguindo o passo a passo da Fase 6”.
-- Inclusão de **instruções de implementação**:
-  - como usar o Prompt Mestre no Lovable/Replit,
-  - quais variáveis de ambiente configurar,
-  - ordem recomendada (ex.: primeiro configurar Supabase, depois colar o código).
+- Geração de **arquivos de configuração**:
+  - `config.ts` com QuizConfig completo,
+  - `logica.ts` e `metadata.json` com dados do cliente.
 - Revisão de qualidade do prompt:
   - checar se não há campos “a definir depois”,
   - checar se todas as integrações citadas na Fase 6 aparecem no Prompt Mestre,
