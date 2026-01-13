@@ -1,256 +1,193 @@
 # 📚 ÍNDICE DO ARSENAL SALOMÃO
 
-> **Como Usar:** Este é o mapa mestre que cruza TUDO: Templates, Engines, Componentes, Imagens e Documentação.
+> **Como Usar:** Este é o mapa mestre que cruza TUDO: Templates, Engines, Componentes e Funis.
 
 ---
 
 ## 🎯 VISÃO GERAL DO ARSENAL
 
-| Categoria | Quantidade | Localização |
-|-----------|------------|-------------|
-| **Templates** | 4 (expandir para 7) | `client/src/components/quiz/screens/templates/` |
-| **Componentes Visuais** | 21 | `client/src/components/quiz/screens/visual/` |
-| **Engines/Hooks** | 4 (expandir) | `client/src/components/quiz/screens/tools/` → migrar para `engines/` |
-| **Iscas Prontas** | 1 (Casa Segura) | `client/src/data/iscas/` |
-| **Benchmarks** | 3 | `_SALOMAO_BRAIN/05_BENCHMARKING_GLOBAL/` |
-| **Coringas** | 20+ | `_SALOMAO_BRAIN/04_REPERTORIO/` |
+| Categoria | Quantidade | Localização REAL |
+|-----------|------------|------------------|
+| **Templates de Resultado** | 4 | `components/quiz/screens/templates/` |
+| **Engines (Calculators)** | 4 | `components/quiz/screens/tools/` |
+| **Componentes Visuais** | 21 | `components/quiz/screens/visual/` |
+| **Funis de Conversão** | 4 | `components/quiz/screens/funnels/` |
+| **Telas Base** | 10 | `components/quiz/screens/` |
+| **Perguntas (Questions)** | 4 | `data/quiz-flows/` |
+| **Protocolos** | 2 | `data/protocols/` |
+| **Iscas Prontas** | 1 | `data/iscas/` |
 
 ---
 
-## 🧩 MATRIZ: MECÂNICA → TEMPLATE → ENGINE
+## 🧩 MATRIZ: MECÂNICA → TEMPLATE → ENGINE → FUNIL
 
-| Mecânica | Template | Engine Principal | Componentes Visuais |
-|----------|----------|------------------|---------------------|
-| Score/Diagnóstico | `ScoreResultTemplate` | `useScoreCalculator` | GaugeMeter, DonutChart |
-| Calculadora R$ | `FinancialResultTemplate` | `useFinancialCalculator` | ComparisonCard, ProjectionLineChart |
-| Idade de X | `HealthResultTemplate` | `useHealthCalculator` | ComparisonDuelChart, EvolutionTrendChart |
-| Risco | `SecurityResultTemplate` | `useSecurityCalculator` | GaugeMeter, MapRadarBackground |
-| Antes/Depois | (criar) | (criar) | BeforeAfterSlider |
-| Match | (criar) | (criar) | IconGrid |
-| Elegibilidade | (criar) | (criar) | GaugeMeter |
+| Mecânica | Template | Engine | Funil Recomendado |
+|----------|----------|--------|-------------------|
+| Score/Diagnóstico | `ScoreResultTemplate.tsx` | `useScoreCalculator.ts` | HighTicket ou Conversion |
+| Calculadora R$ | `FinancialResultTemplate.tsx` | `useFinancialCalculator.ts` | HighTicketConversionFlow |
+| Idade de X | `HealthResultTemplate.tsx` | `useHealthCalculator.ts` | ConversionFlow |
+| Risco/Vulnerabilidade | `SecurityResultTemplate.tsx` | `useSecurityCalculator.ts` | HighTicketConversionFlow |
+| Antes/Depois | (pendente) | (pendente) | VisualServiceFunnel |
+| Match/Recomendação | (pendente) | (pendente) | VisualServiceFunnel |
+| Elegibilidade | (pendente) | (pendente) | HighTicketConversionFlow |
+
+> ⚠️ **3 mecânicas pendentes de implementação** — ver `PENDENCIAS_TECNICAS.md`
 
 ---
 
-## 📦 TEMPLATES DISPONÍVEIS
+## 📦 TEMPLATES DE RESULTADO (4)
 
-### Template 1: FinancialResultTemplate
+**Localização:** `client/src/components/quiz/screens/templates/`
 
-**Arquivo:** `templates/FinancialResultTemplate.tsx`
+| Template | Nicho | Engine |
+|----------|-------|--------|
+| `FinancialResultTemplate.tsx` | Tributário, Solar, Consórcio | `useFinancialCalculator` |
+| `HealthResultTemplate.tsx` | Fitness, Nutrição, Longevidade | `useHealthCalculator` |
+| `ScoreResultTemplate.tsx` | Burnout, TDAH, Inglês | `useScoreCalculator` |
+| `SecurityResultTemplate.tsx` | Segurança, Risco, Vulnerabilidade | `useSecurityCalculator` |
 
-**Quando usar:** Iscas que calculam valor em R$
+---
 
-**Props:**
-```typescript
-interface FinancialResultProps {
-  totalSavings: number;
-  badScenarioValue: number;
-  goodScenarioValue: number;
-  projectionData: any[];
-  verdictTitle: string;
-  onContinue: () => void;
-}
+## ⚙️ ENGINES / CALCULATORS (4)
+
+**Localização:** `client/src/components/quiz/screens/tools/`
+
+| Engine | O que calcula | Documentação |
+|--------|---------------|--------------|
+| `useFinancialCalculator.ts` | R$ perdido, economia, projeção 5 anos | `README_TOOLS.txt` |
+| `useHealthCalculator.ts` | IMC, idade biológica, meta de peso | `README_TOOLS.txt` |
+| `useScoreCalculator.ts` | Score ponderado 0-100, níveis | `README_TOOLS.txt` |
+| `useSecurityCalculator.ts` | % de risco, vulnerabilidades, fatores | `README_TOOLS.txt` |
+
+---
+
+## 🌪️ FUNIS DE CONVERSÃO (4)
+
+**Localização:** `client/src/components/quiz/screens/funnels/`
+
+> **IMPORTANTE:** Todo quiz DEVE terminar em um destes funis. Eles são o "pós-resultado".
+
+| Funil | Tipo de Negócio | Arquivos |
+|-------|-----------------|----------|
+| **Arquétipo 1: Digital** | Infoprodutos, Cursos, Dietas | `ConversionFlow.tsx` + `LongVSLSalesPage.tsx` |
+| **Arquétipo 2: High-Ticket** | Advogados, B2B, Solar | `HighTicketConversionFlow.tsx` |
+| **Arquétipo 3: Visual** | Estética, Dentista, Academia | `VisualServiceFunnel.tsx` |
+
+**Documentação:** `INSTRUCOES_FUNIS.md`
+
+### Como Escolher o Funil:
+
 ```
+└── O cliente vende PRODUTO DIGITAL?
+    └── SIM → Arquétipo 1 (ConversionFlow + LongVSL)
 
-**Componentes internos:**
-- `ComparisonCard`
-- `ProjectionLineChart`
-- CTA sticky
+└── O cliente vende SERVIÇO SÉRIO/COMPLEXO?
+    └── SIM → Arquétipo 2 (HighTicketConversionFlow)
 
----
-
-### Template 2: HealthResultTemplate
-
-**Arquivo:** `templates/HealthResultTemplate.tsx`
-
-**Quando usar:** Iscas de saúde, idade metabólica, corpo
-
-**Componentes internos:**
-- `ComparisonDuelChart`
-- `ProjectionLineChart`
-- `BeforeAfterSlider`
-
----
-
-### Template 3: ScoreResultTemplate
-
-**Arquivo:** `templates/ScoreResultTemplate.tsx`
-
-**Quando usar:** Iscas de score 0-100 (burnout, ansiedade)
-
-**Componentes internos:**
-- `GaugeMeter`
-- Barras de progresso
-- Card de veredito
-
----
-
-### Template 4: SecurityResultTemplate
-
-**Arquivo:** `templates/SecurityResultTemplate.tsx`
-
-**Quando usar:** Iscas de risco e vulnerabilidade
-
-**Componentes internos:**
-- `GaugeMeter`
-- Lista de fatores
-- `TipCard`
-
----
-
-## ⚙️ ENGINES DISPONÍVEIS
-
-### Engine 1: useFinancialCalculator
-
-**Arquivo:** `tools/useFinancialCalculator.ts`
-
-**Input:**
-```typescript
-{
-  currentValue: number;
-  optimizedValue: number;
-  timeHorizonMonths: number;
-  context: 'monthly' | 'total';
-}
+└── O cliente vende BELEZA/EXPERIÊNCIA LOCAL?
+    └── SIM → Arquétipo 3 (VisualServiceFunnel)
 ```
-
-**Output:**
-```typescript
-{
-  monthlySavings: number;
-  totalSavings: number;
-  projectedLoss5Years: number;
-  comparisonData: ComparisonItem[];
-  projectionGraph: ProjectionItem[];
-  verdictTitle: string;
-}
-```
-
----
-
-### Engine 2: useSecurityCalculator
-
-**Arquivo:** `tools/useSecurityCalculator.ts`
-
-**Funcionalidade:** Calcula risco de invasão baseado em fatores
-
-**Output:** riskPercentage, riskLevel, justifications, tips
-
----
-
-### Engine 3: useHealthCalculator
-
-**Arquivo:** `tools/useHealthCalculator.ts`
-
-**Funcionalidade:** Calcula idade biológica, IMC, taxa metabólica
-
----
-
-### Engine 4: useScoreCalculator
-
-**Arquivo:** `tools/useScoreCalculator.ts`
-
-**Funcionalidade:** Calcula score ponderado baseado em respostas
 
 ---
 
 ## 🎨 COMPONENTES VISUAIS (21)
 
-### Categoria: Visualização de Dados
+**Localização:** `client/src/components/quiz/screens/visual/`
 
-| Componente | Uso | Psicologia |
-|------------|-----|------------|
-| `GaugeMeter` | Velocímetro de score | Big Reveal |
-| `DonutChart` | Gráfico pizza | Proporção |
-| `ProjectionLineChart` | Linha de projeção | Futuro |
-| `EvolutionTrendChart` | Jornada | Crescimento |
-| `ComparisonDuelChart` | Duas linhas | Contraste |
-| `ProgressJourneyChart` | Barras crescentes | Progresso |
+### Gráficos e Projeções
+| Componente | Psicologia |
+|------------|------------|
+| `GaugeMeter.tsx` | Big Reveal (velocímetro) |
+| `DonutChart.tsx` | Proporção |
+| `ProjectionLineChart.tsx` | Projeção futura |
+| `EvolutionTrendChart.tsx` | Jornada A→B |
+| `ComparisonDuelChart.tsx` | Duelo de linhas |
+| `ProgressJourneyChart.tsx` | Barras crescentes |
 
-### Categoria: Comparação
+### Comparação
+| Componente | Psicologia |
+|------------|------------|
+| `ComparisonCard.tsx` | Cenário A vs B |
+| `ComparisonTable.tsx` | Tabela comparativa |
+| `BeforeAfterSlider.tsx` | Transformação visual |
 
-| Componente | Uso | Psicologia |
-|------------|-----|------------|
-| `ComparisonCard` | A vs B | Contraste |
-| `ComparisonTable` | Tabela | Matrix |
-| `BeforeAfterSlider` | Arrastar | Transformação |
+### Loading
+| Componente | Psicologia |
+|------------|------------|
+| `SocialProofLoader.tsx` | Labor Illusion + fatos |
+| `ChecklistLoader.tsx` | Auditoria forense |
 
-### Categoria: Loading
+### Interação
+| Componente | Psicologia |
+|------------|------------|
+| `InteractiveBodySelector.tsx` | Toque na dor |
+| `VisualStateSlider.tsx` | Morphing |
+| `InteractiveInput.tsx` | Big Data |
+| `IconGrid.tsx` | Shopping visual |
+| `ScratchCard.tsx` | Gamificação |
 
-| Componente | Uso | Psicologia |
-|------------|-----|------------|
-| `SocialProofLoader` | Loading + fatos | Labor Illusion |
-| `ChecklistLoader` | Loading + checklist | Auditoria |
+### Social/Trust
+| Componente | Psicologia |
+|------------|------------|
+| `ReviewsCarousel.tsx` | Prova social |
+| `MapRadarBackground.tsx` | Autoridade local |
+| `TipCard.tsx` | Reciprocidade |
 
-### Categoria: Interação
+### Ação
+| Componente | Psicologia |
+|------------|------------|
+| `TimeSlotSelector.tsx` | Urgência |
+| `ShareButton.tsx` | Viralização |
 
-| Componente | Uso | Psicologia |
-|------------|-----|------------|
-| `InteractiveBodySelector` | Mapa corporal | Toque na Dor |
-| `VisualStateSlider` | Slider morph | Morphing |
-| `InteractiveInput` | Input grande | Big Data |
-| `IconGrid` | Grid de ícones | Shopping |
-| `ScratchCard` | Raspadinha | Gamificação |
-
-### Categoria: Social/Trust
-
-| Componente | Uso | Psicologia |
-|------------|-----|------------|
-| `ReviewsCarousel` | Reviews | Prova Social |
-| `MapRadarBackground` | Mapa local | Autoridade |
-| `TipCard` | Dicas | Reciprocidade |
-
-### Categoria: Ação
-
-| Componente | Uso | Psicologia |
-|------------|-----|------------|
-| `TimeSlotSelector` | Agendamento | Urgência |
-| `ShareButton` | Compartilhar | Viralização |
+**Documentação:** `VISUAL_COMPONENTS_LIBRARY.md`
 
 ---
 
-## 📁 LOCALIZAÇÃO DE ARQUIVOS
+## 📋 TELAS BASE (10)
 
-### Código Principal
-```
-client/src/
-├── components/quiz/screens/
-│   ├── visual/                    ← 21 componentes
-│   ├── templates/                 ← 4 templates
-│   └── tools/                     ← 4 hooks
-├── data/
-│   ├── iscas/                     ← Iscas prontas
-│   │   └── casa-segura/
-│   └── quiz-flows/                ← Fluxos de perguntas
-└── assets/images/                 ← Banco de imagens (criar)
-```
+**Localização:** `client/src/components/quiz/screens/`
 
-### Documentação (Brain)
-```
-_SALOMAO_BRAIN/
-├── 00_INICIO_OBRIGATORIO/         ← Porta de entrada
-├── 01_ESTRATEGIA_MESTRE/          ← Micro-tarefas
-├── 02_PSICOLOGIA_E_COPY/          ← Vilão, Caneta Giordano
-├── 03_PROTOCOLO_TECNICO/          ← APIs
-├── 04_REPERTORIO/                 ← Coringas, Variações
-│   └── VARIAÇÕES_POR_NICHO/       ← (criar)
-└── 05_BENCHMARKING_GLOBAL/        ← Zing, BetterMe
-```
+| Tela | Uso |
+|------|-----|
+| `WelcomeScreen.tsx` | Capa/entrada |
+| `MultiSelectScreen.tsx` | Perguntas com opções |
+| `ImageSelectScreen.tsx` | Cards com imagens |
+| `InputScreen.tsx` | Campos de texto/número |
+| `InfoInterstitialScreen.tsx` | Fatos educativos |
+| `LoadingCalculatedScreen.tsx` | Loading com mensagens |
+| `EmailCaptureScreen.tsx` | Captura de email |
+| `VSLSalesScreen.tsx` | Página de vendas |
+| `ScaleScreen.tsx` | Escala 1-5 ou 1-10 |
+| `SliderScreen.tsx` | Range contínuo |
 
 ---
 
-## 📝 DOCUMENTAÇÃO DE REFERÊNCIA
+## 📁 DADOS (Data)
 
-| Documento | Propósito | Localização |
-|-----------|-----------|-------------|
-| `LEIA_PRIMEIRO.md` | Identidade e regras | `00_INICIO_OBRIGATORIO/` |
-| `CHECKLIST_UNIVERSAL.md` | Processo passo a passo | `00_INICIO_OBRIGATORIO/` |
-| `MAPA_MECANICAS.md` | 7 mecânicas universais | `00_INICIO_OBRIGATORIO/` |
-| `MAPEAMENTO_PSICO_CODIGO.md` | Psicologia → Componente | `00_INICIO_OBRIGATORIO/` |
-| `LOGICA_TRANSPOSICAO.md` | Como adaptar benchmarks | `00_INICIO_OBRIGATORIO/` |
-| `VISUAL_COMPONENTS_LIBRARY.md` | Detalhes dos componentes | `visual/` |
-| `README_TOOLS.txt` | Detalhes das engines | `tools/` |
-| `Vilão Mensurável.md` | Como definir o vilão | `02_PSICOLOGIA_E_COPY/` |
-| `CONCEITOS_ISCAS_CORINGA.md` | 20+ iscas coringa | `04_REPERTORIO/` |
+### Perguntas (quiz-flows/)
+**Localização:** `client/src/data/quiz-flows/`
+
+| Arquivo | Nicho |
+|---------|-------|
+| `BurnoutQuestions.ts` | Saúde Mental |
+| `FinancialQuestions.ts` | Tributário/Financeiro |
+| `SecurityQuestions.ts` | Segurança Residencial |
+| `WeightLossQuestions.ts` | Emagrecimento |
+
+**Documentação:** `README_QUESTIONS.txt`
+
+### Protocolos (protocols/)
+**Localização:** `client/src/data/protocols/`
+
+| Arquivo | Função |
+|---------|--------|
+| `ZING_PROTOCOL_MASTER.md` | Ordem psicológica das telas (30-50) |
+| `CONVERSION_PROTOCOL_MASTER.md` | Fluxo de conversão |
+
+### Iscas de Clientes (iscas/)
+**Localização:** `client/src/data/iscas/`
+
+Cada cliente tem sua pasta: `iscas/[slug-cliente]/config.ts`
 
 ---
 
@@ -258,35 +195,21 @@ _SALOMAO_BRAIN/
 
 ### "Preciso criar uma isca de [NICHO]"
 1. → `CHECKLIST_UNIVERSAL.md` (processo)
-2. → `04_REPERTORIO/CONCEITOS_ISCAS_CORINGA.md` (existe pronta?)
-3. → `MAPA_MECANICAS.md` (qual mecânica?)
+2. → `MAPA_MECANICAS.md` (qual mecânica?)
+3. → Este arquivo (qual template/engine/funil?)
 
 ### "Preciso de um componente para [EFEITO]"
-1. → `MAPEAMENTO_PSICO_CODIGO.md` (qual componente?)
-2. → `visual/VISUAL_COMPONENTS_LIBRARY.md` (como usar?)
+1. → `MAPEAMENTO_PSICO_CODIGO.md`
+2. → `visual/VISUAL_COMPONENTS_LIBRARY.md`
 
-### "Preciso adaptar o Zing para [NICHO]"
-1. → `05_BENCHMARKING_GLOBAL/dossie_ZING_COACH.md` (estudar)
-2. → `LOGICA_TRANSPOSICAO.md` (como adaptar)
+### "Preciso configurar o resultado"
+1. → `templates/` (escolher template)
+2. → `tools/README_TOOLS.txt` (entender engine)
 
-### "Preciso de uma engine para [CÁLCULO]"
-1. → `tools/README_TOOLS.txt` (qual engine?)
-2. → Ver código fonte da engine
-
----
-
-## ⚠️ O QUE AINDA PRECISA SER CRIADO
-
-### Fase 2: Engenharia
-- [ ] Pasta `engines/` com estrutura modular
-- [ ] 3 novos templates (BeforeAfter, Match, Eligibility)
-- [ ] Banco de imagens com INDEX
-
-### Fase 3: Conteúdo
-- [ ] Pasta `VARIAÇÕES_POR_NICHO/`
-- [ ] 10+ arquivos de variação
-- [ ] Prompts de IA documentados
+### "Preciso configurar a oferta/venda"
+1. → `funnels/INSTRUCOES_FUNIS.md`
+2. → Escolher arquétipo (Digital, HighTicket, Visual)
 
 ---
 
-*Documento: INDICE_ARSENAL.md v1.0 — Janeiro 2026*
+*Documento: INDICE_ARSENAL.md v2.0 — Janeiro 2026 (Corrigido)*

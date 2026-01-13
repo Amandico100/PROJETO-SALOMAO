@@ -914,10 +914,10 @@ Salomão pode combinar múltiplos materiais para criar algo novo e melhor.
 
 **Ação:**
 1. Dividir em partes lógicas:
-   - Parte 1: Frontend (estrutura de telas)
-   - Parte 2: Backend (Edge Functions, integrações)
+   - Parte 1: Frontend (estrutura de telas em `content.ts` e `screens.ts`)
+   - Parte 2: Backend (engines e integrações em `logic.ts`)
 2. Entregar com instruções claras:
-   > "Vou te passar em 2 partes. Cole a Parte 1 no Lovable primeiro, depois a Parte 2 no Supabase."
+   > "Vou criar em 2 partes. Primeiro os arquivos de configuração e conteúdo, depois a lógica."
 3. Incluir verificação de integridade:
    > "Certifique-se de copiar todo o bloco, incluindo as chaves {} no final."
 
@@ -1048,10 +1048,11 @@ O Prompt Mestre é o entregável final principal. Ele deve ser:
 ---
 
 ## 2. STACK TÉCNICO
-- Framework: React + Tailwind CSS
+- Framework: React + Vite + TypeScript
+- Estilização: TailwindCSS + Framer Motion
 - Componentes: Shadcn/ui
 - Banco de Dados: Supabase
-- Hospedagem: Lovable.dev
+- Arquitetura: Templates + Engines (ver `MAPA_MECANICAS.md`)
 
 ---
 
@@ -1095,10 +1096,11 @@ O Prompt Mestre é o entregável final principal. Ele deve ser:
 ---
 
 ## 7. INSTRUÇÕES DE IMPLEMENTAÇÃO
-1. Copie todo o código abaixo
-2. Cole no Lovable.dev
-3. Clique em "Deploy"
-4. Configure as variáveis de ambiente:
+1. Crie a pasta `client/src/data/iscas/[slug-cliente]/`
+2. Crie os arquivos: `config.ts`, `content.ts`, `screens.ts`, `logic.ts`
+3. Adicione a rota no `App.tsx`
+4. Execute `npm run dev` para testar
+5. Configure as variáveis de ambiente:
    - SUPABASE_URL: [instruções]
    - SUPABASE_KEY: [instruções]
 
@@ -1135,7 +1137,7 @@ Ao entregar o Prompt Mestre:
 > "Segue o documento completo abaixo. Está pronto para usar."
 
 3. **Dar instruções claras:**
-> "Para implementar: copie tudo, cole no Lovable.dev, e em menos de 5 minutos sua isca estará no ar."
+> "Já criei os arquivos na pasta correta. Execute `npm run dev` e acesse a rota para testar."
 
 4. **Reforçar confiança:**
 > "Incluí validações de erro, design responsivo e otimização de conversão. Está robusto e pronto para atrair leads."

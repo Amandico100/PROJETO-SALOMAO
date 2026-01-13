@@ -4,6 +4,14 @@
 
 ---
 
+## 📁 ONDE ESTÃO OS COMPONENTES
+
+**Localização:** `client/src/components/quiz/screens/visual/`
+
+**Documentação completa:** `visual/VISUAL_COMPONENTS_LIBRARY.md`
+
+---
+
 ## 📊 TABELA MESTRE
 
 | EFEITO PSICOLÓGICO | COMPONENTE | ARQUIVO | ÍCONE LUCIDE |
@@ -40,21 +48,17 @@
 |----------|------------|--------------|
 | Loading de Tensão | `SocialProofLoader` ou `ChecklistLoader` | ✅ SIM |
 | Big Reveal | `GaugeMeter` ou equivalente numérico | ✅ SIM |
-| CTA Final | Botão com ação clara | ✅ SIM |
+| **Funil de Conversão** | Ver `funnels/` | ✅ SIM |
 
 ### Regra 2: NUNCA Use Emojis Como Ícones
 
 ```tsx
 // ❌ PROIBIDO (Amador)
 <span>🏠</span>
-<span>📊</span>
-<span>✅</span>
 
 // ✅ CORRETO (Profissional)
-import { Home, BarChart, CheckCircle } from 'lucide-react';
+import { Home } from 'lucide-react';
 <Home className="w-6 h-6 text-blue-500" />
-<BarChart className="w-6 h-6 text-green-500" />
-<CheckCircle className="w-6 h-6 text-emerald-500" />
 ```
 
 ### Regra 3: Componentes Por Tipo de Isca
@@ -63,21 +67,24 @@ import { Home, BarChart, CheckCircle } from 'lucide-react';
 - `ComparisonCard` — Cenário Atual vs Cenário Otimizado
 - `ProjectionLineChart` — Custo da Inação (5 anos)
 - `GaugeMeter` ou big number — Valor total em R$
+- **Funil:** `HighTicketConversionFlow.tsx`
 
 #### Para Iscas de SAÚDE/CORPO:
 - `InteractiveBodySelector` — Seleção de áreas problemáticas
 - `EvolutionTrendChart` — Projeção de melhoria
 - `BeforeAfterSlider` — Transformação visual
+- **Funil:** `ConversionFlow.tsx` + `LongVSLSalesPage.tsx`
 
 #### Para Iscas de RISCO:
 - `MapRadarBackground` — Contexto local
 - `GaugeMeter` — Percentual de risco
 - `ChecklistLoader` — Análise forense
+- **Funil:** `HighTicketConversionFlow.tsx`
 
-#### Para Iscas de SCORE:
-- `GaugeMeter` — Score visual (velocímetro)
-- `DonutChart` — Distribuição de fatores
-- `ProgressJourneyChart` — Comparação com benchmarks
+#### Para Iscas de ESTÉTICA:
+- `BeforeAfterSlider` — Transformação visual
+- `ScratchCard` — Gamificação com voucher
+- **Funil:** `VisualServiceFunnel.tsx`
 
 ---
 
@@ -117,62 +124,36 @@ import { Sparkles, Smile, Scissors, Palette, Eye, Sun } from 'lucide-react';
 
 ## 🔄 COMBINAÇÕES PRONTAS
 
-### Combo 1: Isca de Diagnóstico Padrão
+### Combo 1: Isca de Diagnóstico (Score)
 ```
-Perguntas → ChecklistLoader → GaugeMeter → TipCard → CTA
+Perguntas → ChecklistLoader → GaugeMeter → TipCard → FUNIL → CTA
 ```
 
 ### Combo 2: Isca Financeira
 ```
-Perguntas → SocialProofLoader → ComparisonCard → ProjectionLineChart → CTA
+Perguntas → SocialProofLoader → ComparisonCard → ProjectionLineChart → FUNIL → CTA
 ```
 
 ### Combo 3: Isca de Transformação
 ```
-Foto Upload → BeforeAfterSlider → ReviewsCarousel → TimeSlotSelector → CTA
+Foto Upload → BeforeAfterSlider → ReviewsCarousel → FUNIL → CTA
 ```
 
 ### Combo 4: Isca de Risco Local
 ```
-MapRadarBackground → Perguntas → ChecklistLoader → GaugeMeter → TipCard → CTA
-```
-
----
-
-## 📁 LOCALIZAÇÃO DOS COMPONENTES
-
-```
-client/src/components/quiz/screens/
-├── visual/                      ← Componentes visuais
-│   ├── GaugeMeter.tsx
-│   ├── SocialProofLoader.tsx
-│   ├── ComparisonCard.tsx
-│   ├── ... (21 componentes)
-│   └── VISUAL_COMPONENTS_LIBRARY.md
-│
-├── templates/                   ← Templates completos
-│   ├── FinancialResultTemplate.tsx
-│   ├── HealthResultTemplate.tsx
-│   ├── ScoreResultTemplate.tsx
-│   └── SecurityResultTemplate.tsx
-│
-└── tools/                       ← Hooks e lógica
-    ├── useFinancialCalculator.ts
-    ├── useHealthCalculator.ts
-    ├── useScoreCalculator.ts
-    └── useSecurityCalculator.ts
+MapRadarBackground → Perguntas → ChecklistLoader → GaugeMeter → TipCard → FUNIL → CTA
 ```
 
 ---
 
 ## ⚠️ CHECKLIST ANTES DE USAR COMPONENTE
 
-- [ ] O componente existe? (verificar em `visual/`)
+- [ ] O componente existe em `visual/`?
 - [ ] Importei corretamente? (`import X from '@/components/quiz/screens/visual/X'`)
 - [ ] Passei todas as props obrigatórias?
 - [ ] Usei ícone Lucide em vez de emoji?
-- [ ] O efeito psicológico está alinhado com o objetivo da tela?
+- [ ] **Configurei o Funil de conversão?**
 
 ---
 
-*Documento: MAPEAMENTO_PSICO_CODIGO.md v1.0 — Janeiro 2026*
+*Documento: MAPEAMENTO_PSICO_CODIGO.md v2.0 — Janeiro 2026 (Corrigido)*

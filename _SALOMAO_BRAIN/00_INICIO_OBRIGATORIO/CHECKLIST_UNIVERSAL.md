@@ -43,15 +43,7 @@
   - [ ] SIM → Qual? _____________________
   - [ ] NÃO → Prosseguir para criação específica
 
-### 1.2 — Consultar Variações por Nicho
-
-> 📖 Consultar: `04_REPERTORIO/VARIAÇÕES_POR_NICHO/[nicho].md`
-
-- [ ] **Existem variações documentadas para este nicho?**
-  - [ ] SIM → Listar opções disponíveis
-  - [ ] NÃO → Criar nova entrada depois (The Commit Rule)
-
-### 1.3 — Estudar Benchmark
+### 1.2 — Estudar Benchmark
 
 > 📖 Consultar: `05_BENCHMARKING_GLOBAL/`
 
@@ -69,91 +61,83 @@
 > 📖 Consultar: `00_INICIO_OBRIGATORIO/MAPA_MECANICAS.md`
 
 - [ ] **Qual das 7 mecânicas se aplica?**
-  - [ ] 1. Quiz de Score/Diagnóstico
-  - [ ] 2. Calculadora de Valor (R$)
-  - [ ] 3. Scanner de Idade de X
-  - [ ] 4. Antes/Depois com IA
-  - [ ] 5. Match/Recomendação
-  - [ ] 6. Risco/Vulnerabilidade
-  - [ ] 7. Elegibilidade/Chance
+  - [ ] 1. Quiz de Score/Diagnóstico (✅ disponível)
+  - [ ] 2. Calculadora de Valor R$ (✅ disponível)
+  - [ ] 3. Scanner de Idade de X (✅ disponível)
+  - [ ] 4. Antes/Depois com IA (⏳ pendente)
+  - [ ] 5. Match/Recomendação (⏳ pendente)
+  - [ ] 6. Risco/Vulnerabilidade (✅ disponível)
+  - [ ] 7. Elegibilidade/Chance (⏳ pendente)
 
-### 2.2 — Selecionar Template
+### 2.2 — Selecionar Template e Engine
 
-- [ ] **Qual template corresponde à mecânica escolhida?**
-  - Template: _____________________
-  - Engine: _____________________
+> 📖 Consultar: `00_INICIO_OBRIGATORIO/INDICE_ARSENAL.md`
 
-### 2.3 — Definir Tipo de Revelação
-
-> 📖 Consultar: `04_REPERTORIO/Catálogo de Tipos de Revelação.md`
-
-- [ ] **Qual tipo de revelação vai usar?**
-  - [ ] Dinheiro Perdido (R$)
-  - [ ] Tempo Perdido (horas/dias)
-  - [ ] Risco com Prazo
-  - [ ] Idade Percebida
-  - [ ] Score/Ranking
-  - [ ] Antes/Depois Visual
-  - [ ] Outro: _____________________
+- [ ] **Qual template e engine?**
+  - Template (em `screens/templates/`): _____________________
+  - Engine (em `screens/tools/`): _____________________
 
 ---
 
-## 💬 FASE 3: APRESENTAÇÃO AO CLIENTE
+## 🌪️ FASE 3: ESCOLHER FUNIL DE CONVERSÃO (OBRIGATÓRIO)
 
-### 3.1 — Preparar Opções
+> 📖 Consultar: `components/quiz/screens/funnels/INSTRUCOES_FUNIS.md`
+
+**⚠️ ATENÇÃO:** Toda isca DEVE terminar em um funil. Sem funil = sem conversão.
+
+### 3.1 — Identificar Tipo de Negócio
+
+- [ ] **O cliente vende o quê?**
+  - [ ] Produto Digital (Curso, E-book, App) → **Arquétipo 1**
+  - [ ] Serviço High-Ticket (Advogado, B2B, Solar) → **Arquétipo 2**
+  - [ ] Estética/Local (Dentista, Academia, Salão) → **Arquétipo 3**
+
+### 3.2 — Selecionar Arquivos do Funil
+
+| Arquétipo | Arquivos | CTA Final |
+|-----------|----------|-----------|
+| **1: Digital** | `ConversionFlow.tsx` + `LongVSLSalesPage.tsx` | Compra (Pix/Cartão) |
+| **2: High-Ticket** | `HighTicketConversionFlow.tsx` | WhatsApp |
+| **3: Visual** | `VisualServiceFunnel.tsx` | WhatsApp + Voucher |
+
+- [ ] **Funil escolhido:** _____________________
+- [ ] **CTA final definido:** _____________________
+
+---
+
+## 💬 FASE 4: APRESENTAÇÃO AO CLIENTE
+
+### 4.1 — Preparar Opções
 
 - [ ] **Preparei 2-3 opções de isca para o cliente?**
   - Opção A: _____________________
   - Opção B: _____________________
   - Opção C (se houver): _____________________
 
-### 3.2 — Explicar Diferenças
-
-- [ ] **Expliquei as diferenças entre as opções?**
-  - Qual atrai mais leads?
-  - Qual qualifica melhor?
-  - Qual tem visual mais impactante?
-
-### 3.3 — Obter Escolha
+### 4.2 — Obter Escolha
 
 - [ ] **Cliente escolheu qual opção?**
   - Opção escolhida: _____________________
-  - Razão: _____________________
 
 ---
 
-## 💻 FASE 4: EXECUÇÃO (Criar a isca)
+## 💻 FASE 5: EXECUÇÃO (Criar a isca)
 
-### 4.1 — Estrutura de Arquivos
+### 5.1 — Estrutura de Arquivos
 
-- [ ] **Criar pasta `data/iscas/[nome-da-isca]/`**
+- [ ] **Criar pasta `data/iscas/[slug-cliente]/`**
 
 - [ ] **Criar arquivos obrigatórios:**
-  - [ ] `config.ts` — Tema, metadata, engine
-  - [ ] `content.ts` — TODOS os textos
-  - [ ] `screens.ts` — Fluxo de telas
-  - [ ] `logic.ts` — Cálculos (se específico)
+  - [ ] `config.ts` — Configuração QuizConfig
+  - [ ] `logica.ts` — Cálculos específicos (se necessário)
+  - [ ] `metadata.json` — Dados do cliente
 
-### 4.2 — Configurar Engine
+### 5.2 — Configurar Perguntas
 
-- [ ] **Definir engine no `config.ts`:**
-  ```typescript
-  engine: {
-    type: '[financial|score|image]',
-    name: '[nome-da-engine]',
-    params: { ... }
-  }
-  ```
+- [ ] **Criar ou adaptar arquivo em `data/quiz-flows/`**
+- [ ] **Verificar se perguntas alimentam o engine corretamente**
 
-### 4.3 — Verificar Imagens
-
-> 📖 Consultar: `assets/images/INDEX_MASTER.md`
-
-- [ ] **Existem imagens para este nicho?**
-  - [ ] SIM → Usar as existentes
-  - [ ] NÃO → Usar placeholders + indicar quais comprar
-
-### 4.4 — Mapear Componentes Visuais
+### 5.3 — Mapear Componentes Visuais
 
 > 📖 Consultar: `00_INICIO_OBRIGATORIO/MAPEAMENTO_PSICO_CODIGO.md`
 
@@ -162,50 +146,51 @@
   - Big Reveal: _____________________
   - Comparação: _____________________
 
+### 5.4 — Configurar Funil
+
+- [ ] **Configurei as props do funil escolhido?**
+  - WhatsApp configurado? (se aplicável)
+  - Preço/Oferta configurados? (se aplicável)
+
 ---
 
-## ✅ FASE 5: VALIDAÇÃO (Testar tudo)
+## ✅ FASE 6: VALIDAÇÃO (Testar tudo)
 
-### 5.1 — Teste Funcional
+### 6.1 — Teste Funcional
 
 - [ ] **Executei `npm run dev`?**
 - [ ] **Naveguei por todas as telas?**
 - [ ] **O cálculo retorna valores corretos?**
+- [ ] **O funil aparece após o resultado?**
+- [ ] **O CTA final funciona?**
 
-### 5.2 — Verificar Momento Caneta
+### 6.2 — Verificar Momento Caneta
 
 - [ ] **O resultado final cria o "MEU DEUS!"?**
   - O número é chocante?
   - A visualização é impactante?
   - A pessoa vai querer agir?
 
-### 5.3 — Verificar CTA
-
-- [ ] **O botão final funciona?**
-  - WhatsApp abre corretamente?
-  - Webhook envia dados?
-  - Timer de urgência funciona?
-
-### 5.4 — The Commit Rule
+### 6.3 — The Commit Rule
 
 - [ ] **Atualizei a documentação?**
   - [ ] Se criei componente novo → Atualizar `VISUAL_COMPONENTS_LIBRARY.md`
-  - [ ] Se criei engine nova → Atualizar `engines/README.md`
-  - [ ] Se criei variação nova → Atualizar `VARIAÇÕES_POR_NICHO/`
+  - [ ] Se criei engine nova → Atualizar `tools/README_TOOLS.txt`
 
 ---
 
 ## 🏁 FINALIZAÇÃO
 
 - [ ] **Isca testada e funcionando?**
+- [ ] **Funil configurado corretamente?**
 - [ ] **Documentação atualizada?**
 - [ ] **Commit no Git com mensagem clara?**
 
 ### Mensagem de Commit Padrão:
 ```
-feat(isca): [nome-da-isca] - [mecânica] para [nicho]
+feat(isca): [slug-cliente] - [mecânica] para [nicho]
 ```
 
 ---
 
-*Documento: CHECKLIST_UNIVERSAL.md v1.0 — Janeiro 2026*
+*Documento: CHECKLIST_UNIVERSAL.md v2.0 — Janeiro 2026 (Adicionada Fase de Funis)*
