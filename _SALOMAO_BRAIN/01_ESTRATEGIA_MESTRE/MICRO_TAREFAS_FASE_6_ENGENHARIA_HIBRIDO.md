@@ -1,5 +1,21 @@
 # ENGENHARIA
 
+> ⚠️ **AVISO DE COMPATIBILIDADE — Janeiro 2026**
+>
+> Este documento contém referências a "Replit", "Lovable" e "Prompt Mestre" que são **LEGADO**.
+> A **psicologia e estrutura de telas** deste documento permanecem VÁLIDAS.
+>
+> **Para execução técnica, consulte OBRIGATORIAMENTE:**
+> - `00_INICIO_OBRIGATORIO/MAPA_MECANICAS.md` — Qual template/engine usar
+> - `00_INICIO_OBRIGATORIO/INDICE_ARSENAL.md` — Onde estão os componentes
+> - `00_INICIO_OBRIGATORIO/CHECKLIST_UNIVERSAL.md` — Processo completo
+>
+> **Onde escrever o código (estrutura real):**
+> - Templates: `client/src/components/quiz/screens/templates/`
+> - Engines: `client/src/components/quiz/screens/tools/`
+> - Funis: `client/src/components/quiz/screens/funnels/`
+> - Iscas: `client/src/data/iscas/[slug-cliente]/`
+
 # 📋 MICRO-TAREFAS DO SALOMÃO V1
 
 ## PARTE 6: FASE ENGENHARIA (O Cérebro de Jornada de Telas)
@@ -10,8 +26,7 @@
 
 # 🔧 A FASE ONDE A ISCA GANHA CORPO
 
-> "Engenharia não é só 'montar'. É decidir QUANTAS telas, QUAL fluxo, QUAIS tipos de tela, e gerar um blueprint tão preciso que Replit/Lovable constrói SEM ERRAR."
-> 
+> "Engenharia é decidir QUANTAS telas, QUAL fluxo, QUAIS tipos de tela, e gerar código que funciona de primeira."
 
 Esta é a fase onde o Salomão atua como **Cérebro de Jornada de Telas** — transformando toda a inteligência das fases anteriores em um **projeto técnico executável**.
 

@@ -457,8 +457,8 @@ Nota: 85/100
   - consultar materiais como `APIS_POR_FUNCAO.md` e `APIS_SUGERIDAS_POR_NICHO.md`,
   - sugerir **1 ou 2 provedores** para cada necessidade (com nota 0–100, prós/contras e indicação de plano gratuito, quando existir),
   - gerar um **mini passo a passo** em linguagem simples para o cliente:
-    - “Entre no site X → crie uma conta → vá em [Configurações] → [API Keys] → crie uma chave → copie e guarde. No Prompt Mestre, essa chave irá no campo `SUA_API_KEY_AQUI`.”
-- Consolidação de tudo em um **resumo técnico amigável** para ser usado diretamente na Fase 7 (Prompt Mestre).
+    - "Entre no site X → crie uma conta → vá em [Configurações] → [API Keys] → crie uma chave → copie e guarde. No arquivo `config.ts`, essa chave irá no campo `SUA_API_KEY_AQUI`."
+- Consolidação de tudo em um **resumo técnico amigável** para ser usado diretamente na Fase 7 (Construção).
 
 **Checklist de Saída:**
 - [ ] Estratégia de jornada definida (curta, média ou longa) **com justificativa**.
@@ -472,8 +472,8 @@ Nota: 85/100
   - [ ] Se precisa de API externa:
     - [ ] Pelo menos 1 opção recomendada por função (imagem, mapa etc.), com nota 0–100 e prós/contras.
     - [ ] Passo a passo simples para o cliente obter a chave de API.
-    - [ ] Indicação clara de onde essa chave será usada no Prompt Mestre (placeholder de variável).
-- [ ] Resumo técnico da fase 6 pronto para ser plugado na Fase 7 (Prompt Mestre), sem lacunas nem pontos “a definir depois”.
+    - [ ] Indicação clara de onde essa chave será usada no `config.ts` (placeholder de variável).
+- [ ] Resumo técnico da fase 6 pronto para ser plugado na Fase 7 (Construção), sem lacunas nem pontos "a definir depois".
 
 
 ---
@@ -509,13 +509,13 @@ Nota: 85/100
 - Geração de **arquivos de configuração**:
   - `config.ts` com QuizConfig completo,
   - `logica.ts` e `metadata.json` com dados do cliente.
-- Revisão de qualidade do prompt:
-  - checar se não há campos “a definir depois”,
-  - checar se todas as integrações citadas na Fase 6 aparecem no Prompt Mestre,
-  - checar se o texto está claro para um usuário leigo (barbeiro, advogado, dentista etc.).
+- Revisão de qualidade do código:
+  - checar se não há campos "a definir depois",
+  - checar se todas as integrações citadas na Fase 6 aparecem no código,
+  - checar se o código funciona corretamente.
 
 **Checklist de Saída:**
-- [ ] Prompt Mestre completo e formatado, com:
+- [ ] Código completo e funcional, com:
   - [ ] contexto e objetivo da isca,
   - [ ] stack técnico definida,
   - [ ] design system claro,
@@ -527,12 +527,12 @@ Nota: 85/100
 - [ ] **Integrações externas (APIs) refletidas com clareza**, quando existirem:
   - [ ] nome da API e função dentro do app,
   - [ ] placeholder para chave de API/URL,
-  - [ ] instruções simples dizendo: “pegue a chave conforme passo a passo da Fase 6 e cole aqui”.
-- [ ] Instruções de implementação estão claras o suficiente para um usuário não técnico:
-  - [ ] passos numerados,
-  - [ ] sem jargão desnecessário,
-  - [ ] sem lacunas ou “agora chame um programador”.
-- [ ] Cliente recebeu o Prompt Mestre e entendeu como usar (pelo menos em nível básico: copiar, colar, configurar variáveis e testar).
+  - [ ] instruções simples dizendo: "pegue a chave conforme passo a passo da Fase 6 e cole aqui".
+- [ ] Código testado e funcionando:
+  - [ ] `npm run dev` executa sem erros,
+  - [ ] todas as telas renderizam corretamente,
+  - [ ] lógica de cálculo retorna valores corretos.
+- [ ] Cliente recebeu o link funcional da isca.
 
 
 
@@ -774,15 +774,15 @@ Salomão tem acesso a uma biblioteca completa de materiais de apoio:
 
 ### CATEGORIA E: TÉCNICO & CÓDIGO
 
-| Material                    | Função                                                  | Quando Usar                            |
+| Material                    | Função                                                  | Localização Real                       |
 |----------------------------|---------------------------------------------------------|----------------------------------------|
-| SNIPPETS_COMPONENTES/*.tsx | Código de componentes (cards, passos, forms, modais)    | Fase Prompt Mestre                     |
-| SNIPPETS_LOGICA/*.ts       | Lógica de cálculos, faixas, regras condicionais         | Fase Prompt Mestre                     |
-| SNIPPETS_INTEGRACAO/*.ts   | Código de integrações (Supabase, webhooks simples etc.) | Fase Prompt Mestre                     |
-| LOVABLE_GUIA.md            | Boas práticas Lovable (estrutura, páginas, deploy)      | Fase Prompt Mestre                     |
-| SUPABASE_GUIA.md           | Configuração Supabase (tabelas, policies básicas)       | Fase Prompt Mestre                     |
-| APIS_POR_FUNCAO.md         | Catálogo de APIs por função (imagem, mapa, voz, etc.), com notas 0–100, prós/contras e info de plano free | Fase 6 (Engenharia – bloco de integrações) e Fase 7 (Prompt Mestre, seção de Integrações) |
-| APIS_SUGERIDAS_POR_NICHO.md| Sugestões de APIs por nicho (estética, moda, saúde, jurídico, construção etc.), já alinhadas com tipos de isca mais comuns | Fase 6 (Engenharia – escolha da API) e apoio em futuras iterações/reutilização de iscas |
+| Templates de Resultado     | Telas de resultado prontas por mecânica                 | `components/quiz/screens/templates/`   |
+| Engines (Calculators)      | Lógica de cálculos, faixas, regras condicionais         | `components/quiz/screens/tools/`       |
+| Componentes Visuais        | Gráficos, sliders, cards, loaders                       | `components/quiz/screens/visual/`      |
+| Funis de Conversão         | Fluxos pós-resultado (oferta, CTA)                      | `components/quiz/screens/funnels/`     |
+| Telas Base                 | WelcomeScreen, InputScreen, etc.                        | `components/quiz/screens/`             |
+| SUPABASE_GUIA.md           | Configuração Supabase (tabelas, policies básicas)       | `_SALOMAO_BRAIN/03_PROTOCOLO_TECNICO/` |
+| APIS_POR_FUNCAO.md         | Catálogo de APIs por função                              | `_SALOMAO_BRAIN/03_PROTOCOLO_TECNICO/` |
 
 
 
@@ -910,7 +910,7 @@ Salomão pode combinar múltiplos materiais para criar algo novo e melhor.
 
 ---
 
-### 14.7 PROMPT MESTRE FICA MUITO GRANDE
+### 14.7 CÓDIGO FICA MUITO GRANDE
 
 **Ação:**
 1. Dividir em partes lógicas:
@@ -965,7 +965,7 @@ Se qualquer resposta for "não" → refinar antes de apresentar.
 - Branding: Nome é memorável? Cores combinam com nicho?
 - Oferta: CTA é claro? Stack é irresistível?
 - Engenharia: Fluxo é fluido? Copy está persuasiva?
-- Prompt Mestre: Código está completo? Instruções estão claras?
+- Construção: Código está completo? Isca funciona?
 - Marketing: Ganchos são fortes? Copy vende?
 
 ---
@@ -1029,15 +1029,15 @@ Se qualquer dimensão < 90 → não considera terminado.
 
 # PARTE VIII: ESTRATÉGIA DE ENTREGA
 
-## 16. ESTRUTURA DO PROMPT MESTRE
+## 16. ESTRUTURA DO CÓDIGO DA ISCA
 
-O Prompt Mestre é o entregável final principal. Ele deve ser:
+O código funcional é o entregável final principal. Ele deve seguir esta estrutura:
 
-### 16.1 ESTRUTURA RECOMENDADA
+### 16.1 ESTRUTURA DE PASTA
 
 ```markdown
-# PROMPT MESTRE — [Nome da Isca]
-## Para: [Nome do Cliente] | Nicho: [Nicho]
+# ISCA — [Nome da Isca]
+## Cliente: [Nome do Cliente] | Nicho: [Nicho]
 ## Data: [Data] | Versão: 1.0
 
 ---
@@ -1112,7 +1112,7 @@ O Prompt Mestre é o entregável final principal. Ele deve ser:
 
 ---
 
-### 16.2 CHECKLIST DE QUALIDADE DO PROMPT MESTRE
+### 16.2 CHECKLIST DE QUALIDADE DO CÓDIGO
 
 Antes de entregar, verificar:
 
@@ -1128,10 +1128,10 @@ Antes de entregar, verificar:
 
 ### 16.3 APRESENTAÇÃO DA ENTREGA
 
-Ao entregar o Prompt Mestre:
+Ao entregar a isca:
 
 1. **Contextualizar o valor:**
-> "Aqui está o Prompt Mestre completo da sua isca '[Nome]'. Quando você rodar isso, seu público vai [descrição do que acontece]."
+> "Sua isca '[Nome]' está pronta! Quando você divulgar o link, seu público vai [descrição do que acontece]."
 
 2. **Entregar o documento:**
 > "Segue o documento completo abaixo. Está pronto para usar."
@@ -1179,7 +1179,7 @@ Transformar 99% de desconhecidos em 1% de compradores através de iscas irresist
 - **Produto Oculto:** Falar com os 5 desejos universais
 
 ### FASES OBRIGATÓRIAS
-Discovery → Psychology → Ideation → Branding → Oferta → Engenharia → Prompt Mestre → Marketing
+Discovery → Psychology → Ideation → Branding → Oferta → Engenharia → Construção → Marketing
 
 ### REGRAS DE OURO
 1. Nunca pular etapas
