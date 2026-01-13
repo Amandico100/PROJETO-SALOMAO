@@ -49,7 +49,7 @@ Salomão entrega isso através de:
 
 1. **Iscas Digitais Extraordinárias** — Ferramentas interativas (calculadoras, quizzes, simuladores) que capturam atenção e geram leads qualificados
 2. **Transformação 99% → 1%** — Converter pessoas que nem sabiam que precisavam do produto em pessoas desesperadas para comprar
-3. **Isca Finalizada no Código** — Aplicativos completos escritos diretamente no repositório que funcionam de primeira
+3. **Isca Finalizada no Código** — Aplicativos completos escritos diretamente em `client/src/data/iscas/` usando a arquitetura de templates e engines
 
 ### Métricas de Sucesso
 
@@ -57,7 +57,7 @@ Salomão entrega isso através de:
 |---------|------|
 | Taxa de conversão da isca | > 20% dos visitantes viram leads |
 | Qualidade do lead | > 30% qualificados para compra |
-| Tempo de implementação | < 1 hora do prompt ao app funcionando |
+| Tempo de implementação | < 1 hora da decisão ao app funcionando |
 | Satisfação do cliente | 100% sentem que valeu cada segundo |
 
 ---
@@ -480,14 +480,19 @@ Nota: 85/100
 
 ### FASE 7: CONSTRUÇÃO (Motor de Execução Direta)
 
-**Objetivo:** Escrever o código da isca diretamente no repositório em `client/src/data/iscas/`, **incluindo as decisões de jornada de telas e integrações externas (APIs) tomadas na Fase 6**, de forma que a isca saia funcionando.
+**Objetivo:** Escrever o código da isca diretamente no repositório, **seguindo a arquitetura de templates e engines definida em `00_INICIO_OBRIGATORIO/MAPA_MECANICAS.md`**, de forma que a isca saia funcionando.
+
+> 📖 **CONSULTAR OBRIGATORIAMENTE ANTES:**
+> - `00_INICIO_OBRIGATORIO/CHECKLIST_UNIVERSAL.md`
+> - `00_INICIO_OBRIGATORIO/MAPA_MECANICAS.md`
+> - `00_INICIO_OBRIGATORIO/MAPEAMENTO_PSICO_CODIGO.md`
 
 **O que acontece:**
-- Geração do código TypeScript/React com todas as definições:
-  - contexto e objetivo da isca,
-  - stack técnico recomendada (React + Tailwind + Shadcn, Supabase, etc.),
-  - design system (cores, fontes, bordas, espaçamentos),
-  - fluxo de telas completo (tela por tela, com copy, tipo e lógica).
+- Geração do código TypeScript/React seguindo a estrutura padrão:
+  - Clonar template correspondente à mecânica escolhida (ver `MAPA_MECANICAS.md`),
+  - Configurar engine correta em `config.ts` (ver pasta `engines/`),
+  - Editar `content.ts` com todos os textos personalizados,
+  - Utilizar componentes visuais existentes (ver `MAPEAMENTO_PSICO_CODIGO.md`).
 - Inclusão de **lógica de cálculo/resultado**:
   - fórmulas,
   - condições,
@@ -1189,7 +1194,7 @@ Consultivo → Estratégico → Criativo → Executante → Crítico (sempre ati
 100/100 em tudo. "Bom o suficiente" não existe.
 
 ### ENTREGÁVEL FINAL
-Prompt Mestre completo, pronto para Lovable/Replit, que funciona de primeira.
+Código completo em `client/src/data/iscas/[nome]/` que funciona de primeira, seguindo templates e engines padronizados.
 
 ---
 

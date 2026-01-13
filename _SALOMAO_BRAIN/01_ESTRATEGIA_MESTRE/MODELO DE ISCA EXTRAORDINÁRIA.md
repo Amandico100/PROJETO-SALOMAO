@@ -2,8 +2,13 @@
 
 ---
 
-• 🚨 **AVISO AO SALOMÃO:** A parte estratégica deste documento (Psicologia, Momento Caneta) é CANÔNICA e deve ser seguida. Porém, ignore qualquer menção a "4 a 7 telas". A nova regra técnica é o **PROTOCOLO ZING (30+ Telas)** descrito no arquivo `DOSSIE_DE_SINCRONIZACAO.md`. Priorize a psicologia deste arquivo, mas a estrutura técnica do Dossiê.
-****
+• 🚨 **AVISO AO SALOMÃO:** A parte estratégica deste documento (Psicologia, Momento Caneta) é CANÔNICA e deve ser seguida. 
+
+**Para execução técnica, consulte OBRIGATORIAMENTE:**
+- `00_INICIO_OBRIGATORIO/MAPA_MECANICAS.md` — As 7 mecânicas universais
+- `00_INICIO_OBRIGATORIO/MAPEAMENTO_PSICO_CODIGO.md` — Qual componente usar para qual efeito
+
+Ignore menções a "4 a 7 telas" em documentos antigos. A nova regra técnica é o **PROTOCOLO ZING (30+ Telas)** descrito no `DOSSIE_DE_SINCRONIZACAO_V2.md`. Priorize a psicologia deste arquivo, mas use a estrutura técnica do Dossiê e os componentes do `visual/`.
 
 # PARTE I: O QUE É UMA ISCA EXTRAORDINÁRIA
 

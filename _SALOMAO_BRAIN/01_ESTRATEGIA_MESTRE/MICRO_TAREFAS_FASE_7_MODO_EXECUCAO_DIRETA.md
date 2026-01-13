@@ -228,12 +228,24 @@ Uma isca bem construída deve ter:
 
 ## 🔗 DOCUMENTOS RELACIONADOS
 
-Para entender a estratégia completa, consulte:
-- `CONSTITUICAO_SALOMAO.md` — Princípios fundamentais
-- `ZING_PROTOCOL_MASTER.md` — 7 Blocos Psicológicos
+> ⚠️ **LEITURA OBRIGATÓRIA ANTES DE CONSTRUIR:**
+
+### Porta de Entrada (Obrigatório)
+- `00_INICIO_OBRIGATORIO/LEIA_PRIMEIRO.md` — Identidade e regras absolutas
+- `00_INICIO_OBRIGATORIO/CHECKLIST_UNIVERSAL.md` — Processo passo a passo
+- `00_INICIO_OBRIGATORIO/MAPA_MECANICAS.md` — 7 mecânicas universais (Score, Financeiro, BeforeAfter, etc.)
+- `00_INICIO_OBRIGATORIO/MAPEAMENTO_PSICO_CODIGO.md` — Qual componente usar para qual efeito
+- `00_INICIO_OBRIGATORIO/LOGICA_TRANSPOSICAO.md` — Como adaptar benchmarks
+- `00_INICIO_OBRIGATORIO/INDICE_ARSENAL.md` — Mapa de Templates, Engines e Componentes
+
+### Estratégia (Aprofundamento)
+- `CONSTITUIÇÃO SALOMÃO.md` — Princípios fundamentais
 - `MICRO_TAREFAS_FASE_*.md` — Cadeia de pensamentos detalhada
-- `DOSSIE_DE_SINCRONIZACAO_V2.md` — Stack técnico
+
+### Técnico
+- `03_PROTOCOLO_TECNICO/DOSSIE_DE_SINCRONIZACAO_V2.md` — Stack técnico
 
 ---
 
 > **"Eu sou o Motor de Execução. A conversa entra, a isca sai. Pronta para mudar negócios."**
+

@@ -51,15 +51,18 @@ A nova diretriz é o **Engajamento Profundo (Deep Funnel)**.
 ## 4. MAPEAMENTO DE PASTAS (Onde estão as coisas?)
 Ao analisar o código, a LLM deve buscar os recursos nestes caminhos exatos:
 
-* `src/data/quiz-flows/`: Onde ficam as perguntas (JSON/Arrays).
-* `src/tools/`: Onde ficam os motores de cálculo (Hooks).
-* `src/components/screens/funnels/`: Onde ficam os 3 Arquétipos de Venda.
-* `src/components/screens/templates/`: Onde ficam as Telas de Resultado (Gráficos).
+* `client/src/data/iscas/`: Onde ficam as iscas prontas (config.ts, content.ts, screens.ts).
+* `client/src/data/quiz-flows/`: Onde ficam as perguntas (JSON/Arrays).
+* `client/src/engines/`: Onde ficam os motores de cálculo (Hooks) — ver `00_INICIO_OBRIGATORIO/INDICE_ARSENAL.md`.
+* `client/src/components/quiz/screens/visual/`: Onde ficam os componentes visuais premium.
+* `client/src/components/quiz/screens/funnels/`: Onde ficam os 3 Arquétipos de Venda.
+* `client/src/components/quiz/screens/templates/`: Onde ficam as Telas de Resultado (Gráficos).
 
 ---
 
 ## 5. DIRETRIZ FINAL DE PERSONALIDADE
 Ao criar um novo projeto, o Salomão deve:
-1.  **Ler este Dossiê** para entender o que é tecnicamente possível.
-2.  **Ler a Constituição/Psicologia** para entender como vender.
-3.  **Cruzar os dados:** Usar a copy persuasiva da Constituição dentro dos componentes React modernos deste Dossiê.
+1.  **Ler `00_INICIO_OBRIGATORIO/`** — Checklist, Mapa de Mecânicas, Mapeamento Psico-Código.
+2.  **Ler este Dossiê** para entender o que é tecnicamente possível.
+3.  **Ler a Constituição/Psicologia** para entender como vender.
+4.  **Cruzar os dados:** Usar a copy persuasiva da Constituição dentro dos componentes React modernos deste Dossiê.
