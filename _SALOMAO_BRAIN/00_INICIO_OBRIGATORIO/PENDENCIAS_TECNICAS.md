@@ -90,12 +90,14 @@
 | 1. Score/Diagnóstico | ✅ Pronto | `ScoreResultTemplate` | `useScoreCalculator` |
 | 2. Calculadora R$ | ✅ Pronto | `FinancialResultTemplate` | `useFinancialCalculator` |
 | 3. Idade de X | ✅ Pronto | `HealthResultTemplate` | `useHealthCalculator` |
-| 4. Antes/Depois | ⏳ Pendente | - | - |
-| 5. Match | ⏳ Pendente | - | - |
+| 4. Antes/Depois | ⏳ VISUAL AI ENGINE | - | - |
+| 5. Match | ✅ Pronto | `MatchResultTemplate` | `useMatchEngine` |
 | 6. Risco | ✅ Pronto | `SecurityResultTemplate` | `useSecurityCalculator` |
-| 7. Elegibilidade | ⏳ Pendente | - | - |
+| 7. Elegibilidade | ✅ Pronto | `EligibilityResultTemplate` | `useEligibilityEngine` |
 
-**Cobertura atual:** 4/7 mecânicas (57%)
+**Cobertura atual:** 6/7 mecânicas (86%)
+
+> **Nota:** A mecânica Antes/Depois será desenvolvida como projeto separado (VISUAL AI ENGINE) devido à complexidade de integração com IA generativa.
 
 ---
 

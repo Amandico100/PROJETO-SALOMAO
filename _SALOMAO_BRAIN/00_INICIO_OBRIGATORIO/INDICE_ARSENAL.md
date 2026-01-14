@@ -27,11 +27,11 @@
 | Calculadora R$ | `FinancialResultTemplate.tsx` | `useFinancialCalculator.ts` | HighTicketConversionFlow |
 | Idade de X | `HealthResultTemplate.tsx` | `useHealthCalculator.ts` | ConversionFlow |
 | Risco/Vulnerabilidade | `SecurityResultTemplate.tsx` | `useSecurityCalculator.ts` | HighTicketConversionFlow |
-| Antes/Depois | (pendente) | (pendente) | VisualServiceFunnel |
-| Match/Recomendação | (pendente) | (pendente) | VisualServiceFunnel |
-| Elegibilidade | (pendente) | (pendente) | HighTicketConversionFlow |
+| **Match/Recomendação** | `MatchResultTemplate.tsx` | `useMatchEngine.ts` | VisualServiceFunnel |
+| **Elegibilidade/Chance** | `EligibilityResultTemplate.tsx` | `useEligibilityEngine.ts` | HighTicketConversionFlow |
+| Antes/Depois | (VISUAL AI ENGINE - pendente) | (pendente) | VisualServiceFunnel |
 
-> ⚠️ **3 mecânicas pendentes de implementação** — ver `PENDENCIAS_TECNICAS.md`
+> ⚠️ **1 mecânica pendente (Antes/Depois)** — Será desenvolvida como VISUAL AI ENGINE
 
 ---
 

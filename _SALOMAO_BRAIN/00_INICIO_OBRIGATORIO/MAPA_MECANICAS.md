@@ -11,12 +11,12 @@
 | 1 | Score/Diagnóstico | Score 0-100 | `ScoreResultTemplate` | `useScoreCalculator` | ✅ |
 | 2 | Calculadora R$ | Valor em reais | `FinancialResultTemplate` | `useFinancialCalculator` | ✅ |
 | 3 | Idade de X | Anos percebidos | `HealthResultTemplate` | `useHealthCalculator` | ✅ |
-| 4 | Antes/Depois | Imagem transformada | (pendente) | (pendente) | ⏳ |
-| 5 | Match/Recomendação | Tipo/Perfil | (pendente) | (pendente) | ⏳ |
+| 4 | Antes/Depois | Imagem transformada | (VISUAL AI ENGINE) | (pendente) | ⏳ |
+| 5 | Match/Recomendação | Tipo/Perfil | `MatchResultTemplate` | `useMatchEngine` | ✅ |
 | 6 | Risco/Vulnerabilidade | % de risco | `SecurityResultTemplate` | `useSecurityCalculator` | ✅ |
-| 7 | Elegibilidade | % de chance | (pendente) | (pendente) | ⏳ |
+| 7 | Elegibilidade | % de chance | `EligibilityResultTemplate` | `useEligibilityEngine` | ✅ |
 
-> ⚠️ 3 mecânicas pendentes — ver `PENDENCIAS_TECNICAS.md`
+> ⚠️ 1 mecânica pendente (Antes/Depois) — Será desenvolvida como VISUAL AI ENGINE
 
 ---
 
